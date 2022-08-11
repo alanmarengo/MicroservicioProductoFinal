@@ -72,6 +72,7 @@ namespace CapaAplicacionProductos.Servicios
         {
 
             return repository.DeleteById<Producto>(productoID);
+            
              
         }
 

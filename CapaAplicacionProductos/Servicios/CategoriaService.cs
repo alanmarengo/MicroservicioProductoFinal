@@ -11,7 +11,7 @@ namespace CapaAplicacionProductos.Servicios
     public interface ICategoriaService
     {
         CategoriaDto createCategoria(string descripcion);
-       Categoria actualizarCategoria(Categoria categoria);
+       Categoria actualizarCategoria(int categoriaID, string Descripcion);
     }
     public class CategoriaService :ICategoriaService
     {
@@ -22,10 +22,11 @@ namespace CapaAplicacionProductos.Servicios
             this.repository = repository;
         }
 
-        public Categoria actualizarCategoria(Categoria categoria)
+        public Categoria actualizarCategoria(int categoriaID, string Descripcion)
         {
-           
-            return repository.Update(categoria);
+            var category = repository.GetBy<Categoria>(categoriaID);
+            category.Descripcion = Descripcion;
+            return repository.Update(category);
         }
 
         public CategoriaDto createCategoria(string descripcion)

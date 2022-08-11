@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaAccesoDatosProductos", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaAplicacionProductos", "..\CapaAplicacionProductos\CapaAplicacionProductos.csproj", "{7768EE7D-4BFD-4FFC-8BB0-5AC0854AA0B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST-PRODUCTO", "..\TEST-PRODUCTO\TEST-PRODUCTO.csproj", "{B7B7FC36-7F83-4EB4-81D9-A158E6077688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7768EE7D-4BFD-4FFC-8BB0-5AC0854AA0B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7768EE7D-4BFD-4FFC-8BB0-5AC0854AA0B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7768EE7D-4BFD-4FFC-8BB0-5AC0854AA0B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B7FC36-7F83-4EB4-81D9-A158E6077688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B7FC36-7F83-4EB4-81D9-A158E6077688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B7FC36-7F83-4EB4-81D9-A158E6077688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B7FC36-7F83-4EB4-81D9-A158E6077688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

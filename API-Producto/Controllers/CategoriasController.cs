@@ -36,11 +36,11 @@ namespace API_Producto.Controllers
         }
         [Route("ActualizarCategoria")]
         [HttpPut]
-        public IActionResult Put(Categoria categoria)
+        public IActionResult Put(int categoriaId, string Descripcion)
         {
             try
             {
-                return new JsonResult(service.actualizarCategoria(categoria)) { StatusCode = 201 };
+                return new JsonResult(service.actualizarCategoria(categoriaId,Descripcion)) { StatusCode = 201 };
 
             }
             catch (Exception e)
