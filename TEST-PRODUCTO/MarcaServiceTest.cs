@@ -2,6 +2,7 @@
 using CapaAccesoDatosProductos.Comandos;
 using CapaAplicacionProductos.Servicios;
 using CapaDominioProductos.DTOs;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,17 @@ using System.Text;
 namespace TEST_PRODUCTO
 {
     [TestFixture]
-    public class MarcaServiceTest
+    public class MarcaServiceTest:BaseTEST_PRODUCTO
     {
         Contexto db;
         GenericsRepository genericsRepository;
         MarcaService marcaService;
 
+
         [SetUp]
         public void Setup()
         {
-            db = new Contexto();
+            db = ConstruirContexto();
             genericsRepository = new GenericsRepository(db);
             marcaService = new MarcaService(genericsRepository);
         }

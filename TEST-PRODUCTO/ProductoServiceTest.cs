@@ -3,6 +3,7 @@ using CapaAccesoDatosProductos.Comandos;
 using CapaAplicacionProductos.Servicios;
 using CapaDominioProductos.DTOs;
 using CapaDominioProductos.Querys;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -12,28 +13,32 @@ using System.Text;
 namespace TEST_PRODUCTO
 {
     [TestFixture]
-    public class ProductoServiceTest
+    public class ProductoServiceTest: BaseTEST_PRODUCTO
     {
         Contexto db;
         GenericsRepository genericsRepository;
         ProductoServicio productoServicio;
         Mock<IProductoQuery> _Query;
 
+
         [SetUp]
         public void Setup()
         {
-            db = new Contexto();
+            db = ConstruirContexto();
             genericsRepository = new GenericsRepository(db);
             _Query = new Mock<IProductoQuery>();
+
             _Query.Setup(a => a.GetProductoID(5)).Returns(new ProductoEspecificoDto 
             {
                 Imagen="PROYECTO" ,
                 Nombre="SOFTWARE",
                 Stock=50
             });
+
             _Query.Setup(a => a.BusquedaProducto(30)).Returns(new List<ProductoDto> { 
                 new ProductoDto { Nombre="Proyecto Prueba Producto 1",Descripcion="Es una prueba" }, 
                 new ProductoDto { Nombre="Proyecto Prueba Producto 2",Descripcion="Es una prueba"} });
+
             productoServicio = new ProductoServicio(genericsRepository, _Query.Object);
         }
 

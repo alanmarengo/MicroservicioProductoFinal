@@ -24,17 +24,6 @@ namespace CapaAccesoDatosProductos
         {
         }
 
-        public Contexto()
-        {
-
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-B7GFJSO;Database=productoAPI2;Uid=sa;Pwd='alanabcdA1'",
-                options => { });
-        }
-
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
