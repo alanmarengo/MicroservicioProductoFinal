@@ -3,6 +3,7 @@ using CapaAccesoDatosProductos.Comandos;
 using CapaAplicacionProductos.Servicios;
 using CapaDominioProductos.Entidades;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace TEST_PRODUCTO
             using (var trans = db.Database.BeginTransaction())
             {
                 var category = categoriaService.createCategoria("proyecto software");
-                Assert.IsNotNull(category);
+                NUnit.Framework.Assert.IsNotNull(category);
                 trans.Rollback();
             }
 
@@ -44,8 +45,27 @@ namespace TEST_PRODUCTO
             using (var trans = db.Database.BeginTransaction())
             {
                 var sale = categoriaService.actualizarCategoria(4, "Proyecto software 2");
-                Assert.IsNotNull(sale);
+                NUnit.Framework.Assert.IsNotNull(sale);
                 trans.Rollback();
+            }
+        }
+
+
+        [Test]
+        [ExpectedException(typeof(FormatException))]
+        public void UpdateCategoriaConIdCategoriaInvalido()
+        {
+            using (var trans = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    var sale = categoriaService.actualizarCategoria(int.Parse("PROYECTO"), "Proyecto software 2");
+                }
+                catch (Exception ex)
+                {
+
+                }
+
             }
         }
 

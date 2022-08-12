@@ -70,11 +70,26 @@ namespace TEST_PRODUCTO
             Assert.IsNotNull(product);
         }
 
+
+        [Test]
+        public void GetProductByIdConIdInvalido()
+        {
+            var product = productoServicio.GetProductoID(8547);
+            Assert.IsNull(product);
+        }
+
         [Test]
         public void BusquedaProductoPrecios()
         {
             var product = productoServicio.BusquedaProducto(30);
             Assert.IsNotNull(product);
+        }
+
+        [Test]
+        public void BusquedaProductoPreciosConPrecioInexistente()
+        {
+            var product = productoServicio.BusquedaProducto(30985421);
+            Assert.IsNull(product);
         }
 
     }
