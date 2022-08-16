@@ -22,6 +22,11 @@ namespace CapaAplicacionProductos.Servicios
 
         public Marca createMarca(MarcaDto Marca)
         {
+            if (string.IsNullOrEmpty(Marca.Nombre))
+            {
+                return null;
+            }
+
             var oMarca = new Marca()
             {
                 Nombre = Marca.Nombre

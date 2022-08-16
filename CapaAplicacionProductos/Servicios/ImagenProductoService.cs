@@ -22,6 +22,11 @@ namespace CapaAplicacionProductos.Servicios
 
         public ImagenProductoDto createImagenProducto(string nombre)
         {
+
+            if (string.IsNullOrEmpty(nombre))
+            {
+                return null;
+            }
             var entity = new ImagenProducto()
             {
                 Nombre = nombre +".jpg" 

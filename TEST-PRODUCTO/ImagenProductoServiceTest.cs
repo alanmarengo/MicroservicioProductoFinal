@@ -35,5 +35,15 @@ namespace TEST_PRODUCTO
                 trans.Rollback();
             }
         }
+
+        [Test]
+        public void CrearImagenProductoSinNombre()
+        {
+            using (var trans = db.Database.BeginTransaction())
+            {
+                var image = imagenProductoService.createImagenProducto(null);
+                Assert.IsNull(image);
+            }
+        }
     }
 }

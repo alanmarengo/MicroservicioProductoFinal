@@ -31,6 +31,11 @@ namespace CapaAplicacionProductos.Servicios
 
         public CategoriaDto createCategoria(string descripcion)
         {
+            if (string.IsNullOrEmpty(descripcion))
+            {
+                return null;
+            }
+
             var entity = new Categoria()
             {
                 Descripcion = descripcion

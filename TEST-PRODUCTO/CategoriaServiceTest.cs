@@ -38,6 +38,16 @@ namespace TEST_PRODUCTO
             }
 
         }
+        [Test]
+        public void CrearCategoriaSinDescripcion()
+        {
+            using (var trans = db.Database.BeginTransaction())
+            {
+                var category = categoriaService.createCategoria(null);
+                NUnit.Framework.Assert.IsNull(category);
+            }
+
+        }
 
         [Test]
         public void UpdateCategoria()

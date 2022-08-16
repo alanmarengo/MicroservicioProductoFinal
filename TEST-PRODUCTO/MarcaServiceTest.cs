@@ -37,5 +37,15 @@ namespace TEST_PRODUCTO
             }
         }
 
+        [Test]
+        public void CrearMarcaSinNombre()
+        {
+            using (var trans = db.Database.BeginTransaction())
+            {
+                var tradeMark = marcaService.createMarca(new MarcaDto { Nombre = null });
+                Assert.IsNull(tradeMark);
+            }
+        }
+
     }
 }

@@ -48,6 +48,14 @@ namespace CapaAplicacionProductos.Servicios
         public Producto createProducto(ProductoDto productoDto)
         {
 
+            if (string.IsNullOrEmpty(productoDto.Nombre))
+            {
+                return null;
+            }
+            if (string.IsNullOrEmpty(productoDto.Descripcion))
+            {
+                return null;
+            }
             var entity = new Producto()
             {
                 Nombre = productoDto.Nombre ,
@@ -57,15 +65,10 @@ namespace CapaAplicacionProductos.Servicios
                 CategoriaID = productoDto.CategoriaID,
                 Stock = productoDto.Stock,
                 MarcaID = productoDto.MarcaID
-
-
             };
 
             repository.Agregar<Producto>(entity);
             return entity;
-
-
-
         }
 
         public bool EliminarProducto(int productoID)

@@ -64,6 +64,45 @@ namespace TEST_PRODUCTO
 
 
         [Test]
+        public void CrearProductoSinNombre()
+        {
+            using (var trans = db.Database.BeginTransaction())
+            {
+                var product = productoServicio.createProducto(new ProductoDto
+                {
+                    ImagenID = 1,
+                    CategoriaID = 1,
+                    Stock = 40,
+                    Descripcion = null,
+                    MarcaID = 1,
+                    Nombre = "Olivera",
+                    PrecioID = 1,
+
+                });
+                Assert.IsNull(product);
+            }
+        }
+
+        [Test]
+        public void CrearProductoSinDescripcion()
+        {
+            using (var trans = db.Database.BeginTransaction())
+            {
+                var product = productoServicio.createProducto(new ProductoDto
+                {
+                    ImagenID = 1,
+                    CategoriaID = 1,
+                    Stock = 40,
+                    Descripcion = "PROYECTO SOFTWARE",
+                    MarcaID = 1,
+                    Nombre = null,
+                    PrecioID = 1,
+
+                });
+                Assert.IsNull(product);
+            }
+        }
+        [Test]
         public void GetProductById()
         {
             var product = productoServicio.GetProductoID(5);
